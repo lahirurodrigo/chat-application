@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="553.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutX="22.0" layoutY="27.0" prefHeight="417.0" prefWidth="550.0">
+         <content>
+            <VBox fx:id="vBoxArea" prefHeight="403.0" prefWidth="552.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="txtMessage" layoutX="22.0" layoutY="474.0" prefHeight="38.0" prefWidth="442.0" style="-fx-border-color: black;" />
+      <JFXButton fx:id="btnSend" buttonType="RAISED" layoutX="484.0" layoutY="474.0" onAction="#btnSendOnAction" prefHeight="38.0" prefWidth="88.0" style="-fx-border-color: black;" text="Send" />
+   </children>
+</AnchorPane>

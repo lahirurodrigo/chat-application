@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="105.0" fitWidth="109.0" layoutX="246.0" layoutY="111.0">
+         <image>
+            <Image url="@../icons/user.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUserName" layoutX="123.0" layoutY="275.0" style="-fx-border-color: black;" />
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="355.0" layoutY="275.0" onAction="#btnLoginOnAction" style="-fx-border-color: black;" text="Login" />
+   </children>
+</AnchorPane>

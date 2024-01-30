@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -29,6 +30,12 @@ public class ClientFormController implements Initializable {
     private JFXButton btnSend;
 
     @FXML
+    private JFXButton btnEmoji;
+
+    @FXML
+    private JFXButton btnImageBrowser;
+
+    @FXML
     private TextField txtMessage;
 
     @FXML
@@ -36,6 +43,7 @@ public class ClientFormController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
+
 
     Socket socket;
 
@@ -56,8 +64,26 @@ public class ClientFormController implements Initializable {
 
     }
 
+    @FXML
+    void btnEmojiOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnImageBrowserOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtMessageOnAction(ActionEvent event) {
+        btnSend.requestFocus();
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Platform.runLater(() -> txtMessage.requestFocus());
 
         new Thread(()->{
             try {

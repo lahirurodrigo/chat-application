@@ -1,6 +1,7 @@
 package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,7 @@ public class LoginFormController implements Initializable {
     private JFXButton btnLogin;
 
     @FXML
-    private TextField txtUserName;
+    private JFXTextField txtUserName;
 
     static String[] users = new String[]{"1","2","3"};
 
@@ -53,6 +54,7 @@ public class LoginFormController implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.centerOnScreen();
+                stage.setTitle(name);
                 stage.show();
 
 

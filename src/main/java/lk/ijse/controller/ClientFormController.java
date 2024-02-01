@@ -77,9 +77,9 @@ public class ClientFormController implements Initializable {
 
         Text text = new Text(message);
         TextFlow textFlow = new TextFlow(text);
-        textFlow.setStyle("-fx-background-color: #81ecec;-fx-fill: #f5f6fa;-fx-font-weight: normal; -fx-background-radius: 20px");
+        textFlow.setStyle("-fx-background-color: #81ecec; -fx-font-weight: normal; -fx-background-radius: 20px;");
         textFlow.setPadding(new Insets(5,10,5,10));
-        text.setFill(Color.color(0,0,0));
+        text.setFill(Color.WHITE);
         hBox.getChildren().add(textFlow);
 
         vBoxArea.getChildren().add(hBox);
@@ -165,28 +165,65 @@ public class ClientFormController implements Initializable {
             }
         }).start();
 
+        this.vBoxArea.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+                scrollPane.setVvalue((Double) newValue);
+            }
+        });
+
+
     }
 
     private void setMessage(String message, VBox vBoxArea) {
 
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER_LEFT);
-        hBox.setPadding(new Insets(5,5,5,10));
+        if (message.matches(".*\\.(png|jpe?g|gif)$")){
 
-        Text text = new Text(message);
-        TextFlow textFlow = new TextFlow(text);
-        textFlow.setStyle("-fx-background-color: #dfe6e9; -fx-font-weight: normal; -fx-background-radius: 20px");
-        textFlow.setPadding(new Insets(5,10,5,10));
-        text.setFill(Color.color(0,0,0));
-        hBox.getChildren().add(textFlow);
+            System.out.println("hello image is here: "+message);
+            HBox hBoxName = new HBox();
+            hBoxName.setAlignment(Pos.CENTER_LEFT);
+            Text textName = new Text(message.split("[,]")[0]);
+            TextFlow textFlowName = new TextFlow(textName);
+            hBoxName.getChildren().add(textFlowName);
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
+            System.out.println("123456: "+message.split("[,]")[1]);
+            Image image = new Image(message.split("[,]")[1]);
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(200);
+            imageView.setFitWidth(200);
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_LEFT);
+            hBox.setPadding(new Insets(5,5,5,10));
+            hBox.getChildren().add(imageView);
 
-                vBoxArea.getChildren().add(hBox);
-                //vBoxArea.getChildren().add(hBoxName);
-            }
-        });
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    vBoxArea.getChildren().add(hBoxName);
+                    vBoxArea.getChildren().add(hBox);
+                }
+            });
+
+        }else{
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_LEFT);
+            hBox.setPadding(new Insets(5,5,5,10));
+
+            Text text = new Text(message);
+            TextFlow textFlow = new TextFlow(text);
+            textFlow.setStyle("-fx-background-color: #dfe6e9; -fx-font-weight: normal; -fx-background-radius: 20px");
+            textFlow.setPadding(new Insets(5,10,5,10));
+            text.setFill(Color.WHITE);
+            hBox.getChildren().add(textFlow);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+
+                    vBoxArea.getChildren().add(hBox);
+                }
+            });
+
+        }
     }
 }

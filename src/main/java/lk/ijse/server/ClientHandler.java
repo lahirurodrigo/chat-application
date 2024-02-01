@@ -53,8 +53,8 @@ public class ClientHandler implements Runnable {
         try {
             String sender = clientMap.get(socket);
             System.out.println("Sender socket: "+socket);
-            System.out.println("Sender : "+sender);
-            message  = sender+": "+message;
+            System.out.println("Sender:"+sender);
+            message  = sender+","+message;
             dataOutputStream.writeUTF(message.trim());
             dataOutputStream.flush();
         } catch (IOException e) {

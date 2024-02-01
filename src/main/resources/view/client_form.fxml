@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="553.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
+<AnchorPane fx:id="rootNode" prefHeight="553.0" prefWidth="573.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
    <children>
-      <ScrollPane fx:id="scrollPane" layoutX="22.0" layoutY="27.0" prefHeight="417.0" prefWidth="550.0">
+      <ScrollPane fx:id="scrollPane" layoutX="22.0" layoutY="27.0" prefHeight="417.0" prefWidth="550.0" style="-fx-background-color: white;">
          <content>
-            <VBox fx:id="vBoxArea" prefHeight="403.0" prefWidth="552.0" style="-fx-background-color: white;" />
+            <VBox fx:id="vBoxArea" prefHeight="403.0" prefWidth="525.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
       <JFXButton fx:id="btnSend" layoutX="488.0" layoutY="474.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnSendOnAction" prefHeight="51.0" prefWidth="58.0" style="-fx-background-radius: 100;" text="  ">

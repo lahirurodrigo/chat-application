@@ -14,6 +14,6 @@
          </image>
       </ImageView>
       <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="174.0" layoutY="318.0" onAction="#btnLoginOnAction" prefHeight="31.0" prefWidth="62.0" style="-fx-background-radius: 10;" text="Login" />
-      <JFXTextField fx:id="txtUserName" layoutX="114.0" layoutY="246.0" prefHeight="24.0" prefWidth="183.0" promptText="username" />
+      <JFXTextField fx:id="txtUserName" layoutX="114.0" layoutY="246.0" onAction="#txtUserNameOnAction" prefHeight="24.0" prefWidth="183.0" promptText="username" />
    </children>
 </AnchorPane>

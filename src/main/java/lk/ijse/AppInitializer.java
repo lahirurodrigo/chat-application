@@ -22,4 +22,9 @@ public class AppInitializer extends Application {
         stage.show();
 
     }
+
+    @Override
+    public void stop(){
+        System.exit(0);
+    }
 }

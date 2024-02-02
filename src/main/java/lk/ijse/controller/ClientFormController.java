@@ -15,6 +15,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lk.ijse.emojiPicker.EmojiPicker;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -77,7 +79,7 @@ public class ClientFormController implements Initializable {
 
         Text text = new Text(message);
         TextFlow textFlow = new TextFlow(text);
-        textFlow.setStyle("-fx-background-color: #81ecec; -fx-font-weight: normal; -fx-background-radius: 20px;");
+        textFlow.setStyle("-fx-background-color: #3498db; -fx-font-weight: normal; -fx-background-radius: 20px;");
         textFlow.setPadding(new Insets(5,10,5,10));
         text.setFill(Color.WHITE);
         hBox.getChildren().add(textFlow);
@@ -172,7 +174,40 @@ public class ClientFormController implements Initializable {
             }
         });
 
+        emoji();
 
+    }
+
+    private void emoji() {
+
+        EmojiPicker emojiPicker = new EmojiPicker();
+
+        VBox vBox = new VBox(emojiPicker);
+        vBox.setPrefSize(150,300);
+        vBox.setLayoutX(400);
+        vBox.setLayoutY(175);
+        vBox.setStyle("-fx-font-size: 30");
+
+        rootNode.getChildren().add(vBox);
+        emojiPicker.setVisible(false);
+
+        btnEmoji.setOnAction(MouseEvent ->{
+            if(emojiPicker.isVisible()){
+                emojiPicker.setVisible(false);
+            }else{
+                emojiPicker.setVisible(true);
+            }
+        });
+
+        emojiPicker.getEmojiLstView().setOnMouseClicked(mouseEvent -> {
+            String selectedEmoji = emojiPicker.getEmojiLstView().getSelectionModel().getSelectedItem();
+
+            if (selectedEmoji != null){
+                txtMessage.setText(txtMessage.getText() + selectedEmoji);
+            }
+
+            emojiPicker.setVisible(false);
+        });
     }
 
     private void setMessage(String message, VBox vBoxArea) {
@@ -211,7 +246,7 @@ public class ClientFormController implements Initializable {
 
             Text text = new Text(message);
             TextFlow textFlow = new TextFlow(text);
-            textFlow.setStyle("-fx-background-color: #dfe6e9; -fx-font-weight: normal; -fx-background-radius: 20px");
+            textFlow.setStyle("-fx-background-color: #2c3e50; -fx-font-weight: normal; -fx-background-radius: 20px");
             textFlow.setPadding(new Insets(5,10,5,10));
             text.setFill(Color.WHITE);
             hBox.getChildren().add(textFlow);
